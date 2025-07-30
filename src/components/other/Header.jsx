@@ -20,11 +20,10 @@ const Header = () => {
           <span style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "10px", marginTop: "7.5px"}}>
           <h1 style={{ fontSize: "20px", fontWeight: "bold", color: "white" }}>
             Hello
-            <h2
-              style={{ fontSize: "25px", fontWeight: "bold", color: "white" }}
-            >
+            <br/>
+            <span style={{ fontSize: "25px", fontWeight: "bold", color: "white" }}>
               Sachin👋
-            </h2>
+            </span>
           </h1>
           </span>
           <button
