@@ -1,28 +1,43 @@
 import React from "react";
 import Header from "../other/Header";
-
+import Alltasks from "../other/Alltasks";
 const AdminDash = () => {
-  const formStyle = {
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    width: '80%',
+    margin: '50px auto',
+    padding: '30px',
+    borderRadius: '10px',
+    backgroundColor: '#1e1e1e',
+    color: '#fff',
+    boxShadow: '0 0 20px rgba(0,0,0,0.3)',
+    gap: '30px',
+  };
+
+  const leftFormStyle = {
     display: 'flex',
     flexDirection: 'column',
-    width: '30%',
-    height: 'auto',
-    margin: '20px auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-    border: '1px solid black',
-    padding: '20px',
     gap: '20px',
-    borderRadius: '10px',
-    backgroundColor: '#f0f0f0',
-    boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+    width: '50%',
+    margin: '20px auto',
+  };
+
+  const rightFormStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '20px',
+    width: '50%',
+    margin: '20px auto',
+    marginLeft: '25px',
   };
 
   const fieldStyle = {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
-    fontSize: '16px',
+    fontSize: '20px',
     fontWeight: '500',
     gap: '5px',
   };
@@ -30,53 +45,62 @@ const AdminDash = () => {
   const inputStyle = {
     padding: '10px',
     borderRadius: '5px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
+    border: '1px solid #666',
+    backgroundColor: '#111',
+    color: '#fff',
+    fontSize: '20px',
+  };
+
+  const buttonStyle = {
+    backgroundColor: '#34D399',
+    color: 'black',
+    border: 'none',
+    padding: '12px',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    alignSelf: 'flex-start',
+    width: '150px',
+    marginLeft: '145px',
   };
 
   return (
     <>
-      <Header />
-      <div style={formStyle}>
-        <form style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+    <Header/>
+    <div style={containerStyle}>
+      <form style={{ display: 'flex', width: '100%' }}>
+        {/* Left side */}
+        <div style={leftFormStyle}>
           <div style={fieldStyle}>
             <label>Task Title</label>
-            <input style={inputStyle} type="text" placeholder="Enter Task Title" />
-          </div>
-          <div style={fieldStyle}>
-            <label>Description</label>
-            <textarea style={{ ...inputStyle, height: '150px' }} placeholder="Enter Task Description" />
+            <input style={inputStyle} type="text" placeholder="Make a UI design" />
           </div>
           <div style={fieldStyle}>
             <label>Date</label>
-            <input style={inputStyle} type="date" />
+            <input style={inputStyle} type="date" placeholder="dd/mm/yyyy" />
           </div>
           <div style={fieldStyle}>
-            <label>Assign To</label>
-            <input style={inputStyle} type="text" placeholder="Enter Assignee" />
+            <label>Assign to</label>
+            <input style={inputStyle} type="text" placeholder="employee name" />
           </div>
           <div style={fieldStyle}>
             <label>Category</label>
-            <input style={inputStyle} type="text" placeholder="Enter Task Category" />
+            <input style={inputStyle} type="text" placeholder="design, dev, etc" />
           </div>
-          <button
-            type="submit"
-            style={{
-              backgroundColor: '#10B981',
-              color: 'white',
-              border: 'none',
-              padding: '10px 15px',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              fontSize: '18px',
-              fontWeight: 'bold',
-              alignSelf: 'center',
-            }}
-          >
-            Submit
-          </button>
-        </form>
-      </div>
+        </div>
+
+        {/* Right side */}
+        <div style={rightFormStyle}>
+          <div style={fieldStyle}>
+            <label>Description</label>
+            <textarea style={{ ...inputStyle, height: '160px', resize: 'none' }} placeholder="Enter task details..." />
+          </div>
+          <button type="submit" style={buttonStyle}>Create Task</button>
+        </div>
+      </form>
+    </div>
+    <Alltasks/>
     </>
   );
 };
