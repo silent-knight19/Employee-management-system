@@ -8,20 +8,19 @@ const Header = () => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            height: "8vh",
+            height: "15vh",
             width: "100%",
-            backgroundColor: "#1E1E2F",
+            backgroundColor: "black",
             color: "white",
             padding: "10px",
-            borderRadius: "10px",
-            border: "1px solid #10B981",
+           
           }}
         >
           <span style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: "10px", marginTop: "7.5px"}}>
           <h1 style={{ fontSize: "20px", fontWeight: "bold", color: "white" }}>
             Hello
             <br/>
-            <span style={{ fontSize: "25px", fontWeight: "bold", color: "white" }}>
+            <span style={{ fontSize: "35px", fontWeight: "bold", color: "white" }}>
               Sachin👋
             </span>
           </h1>
@@ -29,14 +28,15 @@ const Header = () => {
           <button
             style={{
               backgroundColor: "#10B981",
-              margin: "10px",
-              marginBottom: "10px",
+              marginTop: "10px",
               color: "white",
               padding: "5px",
-              borderRadius: "10px",
-              width: "70px",
-              height: "40px",
-              fontSize: "16px",
+              width: "100px",
+              height: "70px",
+              fontSize: "20px",
+              border: "none",
+              borderRadius: "15px",
+              cursor: "pointer",
             }}
           >
             Logout
