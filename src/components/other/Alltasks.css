@@ -1,0 +1,48 @@
+.alltasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    height: 200px;
+    scrollbar-width: none;
+    border-radius: 5px;
+    gap: 7px;
+  }
+  
+  .task-card {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(71, 9, 9, 0.1);
+    font-size: 20px;
+    font-weight: bold;
+    gap: 4px;
+    color: white;
+  }
+  
+  .task-card.maroon {
+    background-color: maroon;
+  }
+  
+  .task-card.green {
+    background-color: green;
+  }
+  
+  .task-card.yellow {
+    background-color: yellow;
+  }
+  
+  .task-card.blue {
+    background-color: blue;
+  }
+  
+  .task-card.pink {
+    background-color: pink;
+  }
+  

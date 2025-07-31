@@ -1,106 +1,58 @@
-import React from "react";
-import Header from "../other/Header";
-import Alltasks from "../other/Alltasks";
+import React from 'react';
+import Header from '../other/Header';
+import Alltasks from '../other/Alltasks';
+import './AdminDash.css';
+
 const AdminDash = () => {
-  const containerStyle = {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    width: '80%',
-    margin: '50px auto',
-    padding: '30px',
-    borderRadius: '10px',
-    backgroundColor: '#1e1e1e',
-    color: '#fff',
-    boxShadow: '0 0 20px rgba(0,0,0,0.3)',
-    gap: '30px',
-  };
-
-  const leftFormStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    width: '50%',
-    margin: '20px auto',
-  };
-
-  const rightFormStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '20px',
-    width: '50%',
-    margin: '20px auto',
-    marginLeft: '25px',
-  };
-
-  const fieldStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    fontSize: '20px',
-    fontWeight: '500',
-    gap: '5px',
-  };
-
-  const inputStyle = {
-    padding: '10px',
-    borderRadius: '5px',
-    border: '1px solid #666',
-    backgroundColor: '#111',
-    color: '#fff',
-    fontSize: '20px',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#34D399',
-    color: 'black',
-    border: 'none',
-    padding: '12px',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontSize: '20px',
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    width: '150px',
-    marginLeft: '145px',
-  };
-
   return (
     <>
-    <Header/>
-    <div style={containerStyle}>
-      <form style={{ display: 'flex', width: '100%' }}>
-        {/* Left side */}
-        <div style={leftFormStyle}>
-          <div style={fieldStyle}>
-            <label>Task Title</label>
-            <input style={inputStyle} type="text" placeholder="Make a UI design" />
-          </div>
-          <div style={fieldStyle}>
-            <label>Date</label>
-            <input style={inputStyle} type="date" placeholder="dd/mm/yyyy" />
-          </div>
-          <div style={fieldStyle}>
-            <label>Assign to</label>
-            <input style={inputStyle} type="text" placeholder="employee name" />
-          </div>
-          <div style={fieldStyle}>
-            <label>Category</label>
-            <input style={inputStyle} type="text" placeholder="design, dev, etc" />
-          </div>
-        </div>
+      <Header />
+      {/* 👇 Style fix for date picker icon */}
+      <style>
+        {`
+          input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+          }
+        `}
+      </style>
 
-        {/* Right side */}
-        <div style={rightFormStyle}>
-          <div style={fieldStyle}>
-            <label>Description</label>
-            <textarea style={{ ...inputStyle, height: '160px', resize: 'none' }} placeholder="Enter task details..." />
+      <div className="admin-container">
+        <form className="admin-form">
+          {/* Left Side */}
+          <div className="form-left">
+            <div className="form-field">
+              <label>Task Title</label>
+              <input className="form-input" type="text" placeholder="Make a UI design" />
+            </div>
+            <div className="form-field">
+              <label>Date</label>
+              <input className="form-input" type="date" placeholder="dd/mm/yyyy" />
+            </div>
+            <div className="form-field">
+              <label>Assign to</label>
+              <input className="form-input" type="text" placeholder="employee name" />
+            </div>
+            <div className="form-field">
+              <label>Category</label>
+              <input className="form-input" type="text" placeholder="design, dev, etc" />
+            </div>
           </div>
-          <button type="submit" style={buttonStyle}>Create Task</button>
-        </div>
-      </form>
-    </div>
-    <Alltasks/>
+
+          {/* Right Side */}
+          <div className="form-right">
+            <div className="form-field">
+              <label>Description</label>
+              <textarea
+                className="form-input description-input"
+                placeholder="Enter task details..."
+              />
+            </div>
+            <button type="submit" className="submit-btn">Create Task</button>
+          </div>
+        </form>
+      </div>
+      <Alltasks />
     </>
   );
 };
