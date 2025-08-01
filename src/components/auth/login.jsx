@@ -5,12 +5,17 @@ const Login = ({handleLogin}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleLogin(email,password)
-    console.log("Login");
-    setEmail("");
-    setPassword("");
+    try {
+      await handleLogin(email, password);
+      console.log("Login successful");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Login failed:", error);
+      // You might want to show an error message to the user here
+    }
   };
 
   return (
