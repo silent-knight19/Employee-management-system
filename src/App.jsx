@@ -10,57 +10,52 @@ const App = () => {
   const [isInitialized, setIsInitialized] = useState(false);
   const authData = useContext(AuthContext);
 
-  
   useEffect(() => {
-    const existingEmployeeData = localStorage.getItem('employeeData');
-    const existingAdminData = localStorage.getItem('adminData');
+    // Clear any existing login state
+    localStorage.removeItem("loggedInUser");
     
+    // Initialize localStorage data if not present
+    const existingEmployeeData = localStorage.getItem("employeeData");
+    const existingAdminData = localStorage.getItem("adminData");
+
     if (!existingEmployeeData || !existingAdminData) {
-      console.log('Initializing localStorage data...');
+      console.log("Initializing localStorage data...");
       setLocalStorage();
     }
+    
     setIsInitialized(true);
   }, []);
 
-  
-  useEffect(() => {
-    if (isInitialized) {
-      console.log('Employee Data:', authData.employeeData);
-      console.log('Admin Data:', authData.adminData);
-    }
-  }, [authData, isInitialized]);
-
   const handleLogin = (email, password) => {
-    return new Promise((resolve, reject) => {
-      try {
-        const admin = authData.adminData?.find(admin => 
-          admin.email === email && admin.password === password
+    // Admin login
+    if (email === "admin@me.com" && password === "123") {
+      setUser("admin");
+      localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
+      return;
+    }
+
+    // Employee login
+    try {
+      const storedEmployeeData =
+        JSON.parse(localStorage.getItem("employeeData")) || [];
+      const employee = storedEmployeeData.find(
+        (e) => e.email === email && e.password === password
+      );
+
+      if (employee) {
+        setUser("employee");
+        localStorage.setItem(
+          "loggedInUser",
+          JSON.stringify({ role: "employee", data: employee })
         );
-        
-        const employee = authData.employeeData?.find(emp => 
-          emp.email === email && emp.password === password
-       );
-
-        if (admin) {
-          setUser("admin");
-          resolve();
-        } else if (employee) {
-          setUser("employee");
-          resolve();
-        } else {
-          const error = new Error("Invalid email or password");
-          console.error("Login failed: Invalid credentials");
-          reject(error);
-        }
-      } catch (error) {
-        console.error("Login error:", error);
-        reject(error);
+      } else {
+        alert("Invalid Credentials");
       }
-    });
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("An error occurred during login");
+    }
   };
-
-  const data = useContext(AuthContext);
-  console.log(data);
 
   return (
     <>
@@ -68,8 +63,10 @@ const App = () => {
         <Login handleLogin={handleLogin} />
       ) : user === "admin" ? (
         <AdminDash />
-      ) : (
+      ) : user === "employee" ? (
         <EmployeeDash />
+      ) : (
+        <div>Invalid user role</div>
       )}
     </>
   );
