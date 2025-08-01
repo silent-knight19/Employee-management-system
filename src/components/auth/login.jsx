@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "../styles/login.css";
 
-const Login = () => {
+const Login = ({handleLogin}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleLogin(email,password)
     console.log("Login");
     setEmail("");
     setPassword("");
