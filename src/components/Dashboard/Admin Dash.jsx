@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../other/Header';
 import Alltasks from '../other/Alltasks';
-import './AdminDash.css';
+import '../../styles/AdminDash.css';
 
 const AdminDash = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Alltasks.css";
+import "../../styles/Alltasks.css";
 
 const Alltasks = () => {
   return (

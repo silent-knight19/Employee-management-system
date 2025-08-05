@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../../styles/Header.css";
 
 const Header = () => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));

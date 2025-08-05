@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./TaskListNumbers.css";
+import "../../styles/TaskListNumbers.css";
 import { AuthContext } from "../../context/AuthProvider";
 
 const TaskListNumbers = () => {

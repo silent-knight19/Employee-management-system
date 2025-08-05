@@ -1,5 +1,5 @@
 import React from 'react';
-import './CompleteTask.css';
+import '../../styles/CompleteTask.css';
 
 const CompleteTask = ({ data }) => {
   return (

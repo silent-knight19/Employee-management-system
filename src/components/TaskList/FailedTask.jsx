@@ -1,5 +1,5 @@
 import React from 'react';
-import './FailedTask.css';
+import '../../styles/FailedTask.css';
 
 const FailedTask = ({ data }) => {
   return (
