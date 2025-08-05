@@ -13,8 +13,7 @@ const AcceptTask = ({ data }) => {
       <h4 className="task-title">{data.taskTitle}</h4>
       <p className="task-desc">{data.taskDescription}</p>
       <div className="task-actions">
-        <button className="button button-completed">Mark as Completed</button>
-        <button className="button button-failed">Mark as Failed</button>
+        <button className="button button-accept">Accept</button>
       </div>
     </div>
   );

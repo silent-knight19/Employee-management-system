@@ -1,6 +1,9 @@
 import React from "react";
 import "./TaskLists.css";
 import AcceptTask from "../TaskList/AcceptTask";
+import NewTask from "../TaskList/NewTask";
+import CompleteTask from "../TaskList/CompleteTask";
+import FailedTask from "../TaskList/FailedTask";
 const tasks = [
   {
     id: 1,
@@ -56,6 +59,9 @@ const TasklLists = () => {
   return (
     <>
     <AcceptTask data={tasks}/>
+    <NewTask data={tasks}/>
+    <CompleteTask data={tasks}/>
+    <FailedTask data={tasks}/>
     <div className="tasklists">
       {tasks.map((task) => (
         <div key={task.id}>
