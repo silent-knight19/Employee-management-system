@@ -1,6 +1,5 @@
-// Example employee information for testing
-localStorage.clear();
-const employeeData = [
+
+const employees = [
     {
         "id": 1,
         "firstName": "Arjun",
@@ -203,37 +202,20 @@ const employeeData = [
     }
 ];
 
-// Admin login details
-const adminData = [
-  {
-    id: "A001",
-    email: "admin@example.com",
-    password: "123",
-  },
-];
 
-// Saves the example data to the browser's storage
-export const setLocalStorage = () => {
-  try {
-    // Save employee list
-    localStorage.setItem("employeeData", JSON.stringify(employeeData));
-    // Save admin details
-    localStorage.setItem("adminData", JSON.stringify(adminData));
-    console.log("LocalStorage initialized with default data");
-  } catch (error) {
-    console.error("Error initializing localStorage:", error);
-  }
-};
+const admin = [{
+    "id": 1,
+    "email": "admin@example.com",
+    "password": "123"
+}];
 
-// Gets the saved employee and admin data
-export const getLocalStorage = () => {
-  try {
-    return {
-      employeeData: JSON.parse(localStorage.getItem("employeeData") || "[]"),
-      adminData: JSON.parse(localStorage.getItem("adminData") || "[]"),
-    };
-  } catch (error) {
-    console.error("Error reading from localStorage:", error);
-    return { employeeData: [], adminData: [] };
-  }
-};
+export const setLocalStorage = ()=>{
+    localStorage.setItem('employees',JSON.stringify(employees))
+    localStorage.setItem('admin',JSON.stringify(admin))
+}
+export const getLocalStorage = ()=>{
+    const employees = JSON.parse(localStorage.getItem('employees'))
+    const admin = JSON.parse(localStorage.getItem('admin'))
+
+    return {employees,admin}
+}

@@ -1,68 +1,21 @@
-/* .tasklists {
-    width: 100%;
-    height: 500px;
-    color: #0f172a;
-    padding: 90px;
-    border-radius: 10px;
-    margin: 10px;
-    margin-top: 7.5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    overflow: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-  }
-  
-  .tasklist {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 400px;
-    justify-content: start;
-    align-items: center;
-    background-color: #1e1e2f;
-    border-radius: 10px;
-    border: 1px solid #10b981;
-    padding: 5px;
-  }
-  
-  .priority-bar {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 490px;
-    height: 100px;
-    justify-content: start;
-    align-items: center;
-  }
-  
-  .priority-label {
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    padding: 10px;
-    margin: 1px 1px;
-    background-color: #ef4444;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-  }
-  
-  .task-desc {
-    padding: 10px;
-    justify-content: start;
-    align-items: center;
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-  }
- 
-    
-   */
+#tasklist::-webkit-scrollbar{
+  background-color: transparent;
+  height: 5px;
+}
+#tasklist::-webkit-scrollbar-thumb{
+background-color: rgb(143, 143, 143);
+border-radius: 50px;
+}
+
+.tasklist-container {
+  height: 50%;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding-top: 0.25rem;
+  margin-top: 4rem;
+}

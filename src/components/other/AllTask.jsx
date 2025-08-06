@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthProvider';
-import '../../styles/Alltasks.css';
+import './AllTask.css';
 
-const Alltasks = () => {
+const AllTask = () => {
 
    const [userData,setUserData] =  useContext(AuthContext)
 
@@ -31,4 +31,4 @@ const Alltasks = () => {
   )
 }
 
-export default Alltasks
+export default AllTask

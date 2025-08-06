@@ -1,0 +1,14 @@
+*{
+  color: #fff;
+}
+body{
+  background-color: #111;
+}
+
+#root {
+  text-align: center;
+}
+
+.read-the-docs {
+  color: #888;
+}

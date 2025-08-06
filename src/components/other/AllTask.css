@@ -1,0 +1,52 @@
+.all-task-container {
+    background-color: #1c1c1c;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    margin-top: 1.25rem;
+}
+
+.task-header-row {
+    background-color: #f87171;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.25rem;
+}
+
+.header-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    width: 20%;
+}
+
+.task-data-row {
+    border: 2px solid #10b981;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.25rem;
+}
+
+.data-item {
+    font-size: 1.125rem;
+    font-weight: 500;
+    width: 20%;
+}
+
+.data-item-new {
+    color: #60a5fa;
+}
+
+.data-item-active {
+    color: #facc15;
+}
+
+.data-item-completed {
+    color: #ffffff;
+}
+
+.data-item-failed {
+    color: #dc2626;
+}

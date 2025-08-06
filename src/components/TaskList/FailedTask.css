@@ -1,0 +1,49 @@
+.failed-task-container {
+    flex-shrink: 0;
+    height: 100%;
+    width: 300px;
+    padding: 1.25rem;
+    background-color: #facc15;
+    border-radius: 0.75rem;
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-category {
+    background-color: #dc2626;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.task-date {
+    font-size: 0.875rem;
+}
+
+.task-title {
+    margin-top: 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.task-description {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.task-actions {
+    margin-top: 1.5rem;
+}
+
+.task-button-failed {
+    width: 100%;
+    background-color: #ef4444;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}

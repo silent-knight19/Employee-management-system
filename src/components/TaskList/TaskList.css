@@ -1,0 +1,21 @@
+#tasklist::-webkit-scrollbar{
+    background-color: transparent;
+    height: 5px;
+}
+#tasklist::-webkit-scrollbar-thumb{
+  background-color: rgb(143, 143, 143);
+  border-radius: 50px;
+}
+
+.tasklist-container {
+    height: 50%;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-top: 0.25rem;
+    margin-top: 4rem;
+}

@@ -1,55 +1,45 @@
-.tasklists {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px;
-    gap: 15px;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 22%;
-    height: 200px;
-    border-radius: 10px;
-    border: 1px solid #10b981;
-    padding: 20px;
-    color: black;
-    gap: 10px;
-  }
-  
-  .card-title {
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .card-button {
-    background-color: #607d8b;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .new-task {
-    background-color: #38bdf8;
-  }
-  
-  .completed {
-    background-color: #34d399;
-  }
-  
-  .accepted {
-    background-color: #fbbf24;
-  }
-  
-  .failed {
-    background-color: #f87171;
-  }
-  
+.task-list-numbers-container {
+  display: flex;
+  margin-top: 2.5rem;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.task-count-card {
+  border-radius: 0.75rem;
+  width: 45%;
+  padding: 1.5rem 2.25rem;
+}
+
+.card-new-task {
+  background-color: #60a5fa;
+}
+
+.card-completed-task {
+  background-color: #4ade80;
+}
+
+.card-accepted-task {
+  background-color: #facc15;
+}
+
+.card-failed-task {
+  background-color: #f87171;
+}
+
+.card-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 0.125rem;
+  font-weight: 500;
+}
+
+.card-text-black {
+  color: #000000;
+}

@@ -1,22 +1,22 @@
 import React from 'react';
-import '../../styles/FailedTask.css';
+import './FailedTask.css';
 
-const FailedTask = ({ data }) => {
+const FailedTask = ({data}) => {
   return (
-    <div className="tasklist">
-      <div className="priority-bar">
-        <h3 className="priority-label">
-          {data.priority || 'High'} <br />
-          {data.taskDate || 'Due Soon'}
-        </h3>
-      </div>
-      <h4 className="task-title">{data.taskTitle}</h4>
-      <p className="task-desc">{data.taskDescription}</p>
-      <div className="task-actions">
-        <button className="button button-failed">Failed</button>
-      </div>
-    </div>
-  );
-};
+    <div className='failed-task-container'>
+            <div className='task-header'>
+                <h3 className='task-category'>{data.category}</h3>
+                <h4 className='task-date'>{data.taskDate}</h4>
+            </div>
+            <h2 className='task-title'>{data.taskTitle}</h2>
+            <p className='task-description'>
+                {data.taskDescription}
+            </p>
+            <div className='task-actions'>
+                <button className='task-button-failed'>Failed</button>
+            </div>
+        </div>
+  )
+}
 
-export default FailedTask;
+export default FailedTask

@@ -1,48 +1,28 @@
-import React, { useContext } from "react";
-import "../../styles/TaskListNumbers.css";
-import { AuthContext } from "../../context/AuthProvider";
+import React from 'react';
+import './TaskListNumbers.css';
 
-const TaskListNumbers = () => {
-    const authData = useContext(AuthContext);
+const TaskListNumbers = ({data}) => {
   return (
-    <div className="tasklists">
-      {/* New Task */}
-      <div className="card new-task">
-        <h1 className="card-title">
-          {authData.employeeData[0].taskCounts.newTask}<br />
-          New Task
-        </h1>
-        <button className="card-button">View All</button>
-      </div>
-
-      {/* Completed */}
-      <div className="card completed">
-        <h1 className="card-title">
-          {authData.employeeData[0].taskCounts.completed}<br />
-          Completed
-        </h1>
-        <button className="card-button">View All</button>
-      </div>
-
-      {/* Accepted */}
-      <div className="card accepted">
-        <h1 className="card-title">
-          {authData.employeeData[0].taskCounts.active}<br />
-          Accepted
-        </h1>
-        <button className="card-button">View All</button>
-      </div>
-
-      {/* Failed */}
-      <div className="card failed">
-        <h1 className="card-title">
-          {authData.employeeData[0].taskCounts.failed}<br />
-          Failed
-        </h1>
-        <button className="card-button">View All</button>
-      </div>
+    <div className='task-list-numbers-container'>
+        
+        <div className='task-count-card card-new-task'>
+            <h2 className='card-title'>{data.taskCounts.newTask}</h2>
+            <h3 className='card-subtitle'>New Task</h3>
+        </div>
+        <div className='task-count-card card-completed-task'>
+            <h2 className='card-title'>{data.taskCounts.completed}</h2>
+            <h3 className='card-subtitle'>Completed Task</h3>
+        </div>
+        <div className='task-count-card card-accepted-task'>
+            <h2 className='card-title card-text-black'>{data.taskCounts.active}</h2>
+            <h3 className='card-subtitle card-text-black'>Accepted Task</h3>
+        </div>
+        <div className='task-count-card card-failed-task'>
+            <h2 className='card-title'>{data.taskCounts.failed}</h2>
+            <h3 className='card-subtitle'>Failed Task</h3>
+        </div>
     </div>
-  );
-};
+  )
+}
 
-export default TaskListNumbers;
+export default TaskListNumbers

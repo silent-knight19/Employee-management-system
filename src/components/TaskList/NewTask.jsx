@@ -1,23 +1,22 @@
 import React from 'react';
-import '../../styles/NewTask.css';
+import './NewTask.css';
 
-const NewTask = ({ data }) => {
-  return (
-    <div className="tasklist">
-      <div className="priority-bar">
-        <h3 className="priority-label">
-          {data.priority || 'High'} <br />
-          {data.taskDate || 'Due Soon'}
-        </h3>
-      </div>
-      <h4 className="task-title">{data.taskTitle}</h4>
-      <p className="task-desc">{data.taskDescription}</p>
-      <div className="task-actions">
-        <button className="button button-completed">Mark as Completed</button>
-        <button className="button button-failed">Mark as Failed</button>
-      </div>
-    </div>
-  );
-};
+const NewTask = ({data}) => {
+    return (
+        <div className='new-task-container'>
+            <div className='task-header'>
+                <h3 className='task-category'>{data.category}</h3>
+                <h4 className='task-date'>{data.taskDate}</h4>
+            </div>
+            <h2 className='task-title'>{data.taskTitle}</h2>
+            <p className='task-description'>
+                {data.taskDescription}
+            </p>
+            <div className='task-actions'>
+                <button className='task-button-accept'>Accept Task</button>
+            </div>
+        </div>
+    )
+}
 
-export default NewTask;
+export default NewTask

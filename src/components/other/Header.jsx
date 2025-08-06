@@ -1,22 +1,30 @@
-import React from "react";
-import "../../styles/Header.css";
+import React, { useState } from 'react';
+import './Header.css';
+import { setLocalStorage } from '../../utils/localStorage'
 
-const Header = () => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+const Header = (props) => {
+
+  // const [username, setUsername] = useState('')
+
+  // if(!data){
+  //   setUsername('Admin')
+  // }else{
+  //   setUsername(data.firstName)
+  // }
+
+  const logOutUser = ()=>{
+    localStorage.setItem('loggedInUser','')
+    props.changeUser('')
+    // window.location.reload()
+  }
+
+  
   return (
-    <div className="header-container">
-      <div className="header-bar">
-        <span className="header-greeting">
-          <h1 className="header-title">
-            Hello
-            <br />
-            <span className="header-username">{user.firstName}👋</span>
-          </h1>
-        </span>
-        <button className="logout-button">Logout</button>
-      </div>
+    <div className='header-container'>
+        <h1 className='header-greeting'>Hello <br /> <span className='header-username'>username 👋</span></h1>
+        <button onClick={logOutUser} className='logout-button'>Log Out</button>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
