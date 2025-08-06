@@ -1,26 +1,97 @@
-.header-container {
+/* Root dark theme base (can be moved to global) */
+:root {
+    --bg-dark: #121212;
+    --text-light: #f8f8f8;
+    --text-muted: #b3b3b3;
+    --accent-red: #ff4d4f;
+    --accent-red-dark: #d9363e;
+    --card-bg: rgba(40, 40, 40, 0.8);
+    --glass-blur: blur(12px);
+  }
+  
+  /* Main Header Container */
+  .header-container {
+    background-color: var(--card-bg);
+    color: var(--text-light);
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-}
-
-.header-greeting {
-    font-size: 1.5rem; 
-    line-height: 2rem; 
-    font-weight: 500;
-}
-
-.header-username {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-    font-weight: 600;
-}
-
-.logout-button {
-    background-color: #dc2626;
+    padding: 24px 36px;
+    border-radius: 16px;
+    margin: 20px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Greeting Section */
+  .header-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .greeting-text {
     font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.125rem;
-}
+    color: var(--text-muted);
+    margin: 0;
+  }
+  
+  .header-username {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-light);
+    margin-left: 20px;
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(217, 54, 62, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .logout-button:hover {
+    background: linear-gradient(135deg, var(--accent-red-dark), #b02a2f);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(176, 42, 47, 0.5);
+  }
+  
+  .logout-button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 10px rgba(176, 42, 47, 0.3);
+  }
+  
+  .logout-button:focus {
+    outline: 2px solid rgba(255, 77, 79, 0.6);
+    outline-offset: 4px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  
+    .header-username {
+      font-size: 1.5rem;
+    }
+  
+    .logout-button {
+      align-self: flex-end;
+      padding: 10px 20px;
+    }
+  }
+  

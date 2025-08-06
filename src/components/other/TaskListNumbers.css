@@ -1,45 +1,60 @@
 .task-list-numbers-container {
     display: flex;
-    margin-top: 2.5rem;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1.25rem;
-}
-
-.task-count-card {
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding: 0 1rem;
+  }
+  
+  .task-count-card {
+    flex: 1 1 200px;
+    min-height: 180px; /* 🔼 Increased height */
+    padding: 2rem 2.25rem; /* 🔼 Increased vertical padding */
     border-radius: 0.75rem;
-    width: 45%;
-    padding: 1.5rem 2.25rem;
-}
-
-.card-new-task {
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .task-count-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-new-task {
     background-color: #60a5fa;
-}
-
-.card-completed-task {
+  }
+  
+  .card-completed-task {
     background-color: #4ade80;
-}
-
-.card-accepted-task {
+  }
+  
+  .card-accepted-task {
     background-color: #facc15;
-}
-
-.card-failed-task {
+    color: #000; /* Fallback if text class is missed */
+  }
+  
+  .card-failed-task {
     background-color: #f87171;
-}
-
-.card-title {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+  }
+  
+  .card-title {
+    font-size: 2rem;
     font-weight: 700;
-}
-
-.card-subtitle {
+    margin: 0;
+  }
+  
+  .card-subtitle {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-    margin-top: 0.125rem;
     font-weight: 500;
-}
-
-.card-text-black {
-    color: #000000;
-}
+    margin-top: 0.5rem;
+  }
+  
+  .card-text-black {
+    color: #000;
+  }
+  
