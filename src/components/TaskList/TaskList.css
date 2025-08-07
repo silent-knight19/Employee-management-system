@@ -1,18 +1,17 @@
-/* Hide scrollbar cross-browser */
+
 #tasklist {
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background-color: transparent;
   margin-top: 2rem;
 
 }
 
 #tasklist::-webkit-scrollbar {
-  display: none;   
-              /* Chrome/Safari */
+  display: none;
 }
 
-/* Horizontal scrolling container */
+
 .tasklist-wrapper {
   display: flex;
   flex-direction: row;
@@ -36,7 +35,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Card container */
+
 .task-card {
   scroll-snap-align: start;
   flex: 0 0 auto;
@@ -58,7 +57,7 @@
   transform: translateX(-20px);
 }
 
-/* Card entrance animation */
+
 @keyframes fadeInRight {
   to {
       opacity: 1;
@@ -66,13 +65,13 @@
   }
 }
 
-/* Hover effect on cards */
+
 .task-card:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 12px 28px rgba(255, 255, 255, 0.1);
 }
 
-/* Buttons section */
+
 .button-group {
   display: flex;
   justify-content: space-between;
@@ -80,7 +79,7 @@
   margin-top: 1.5rem;
 }
 
-/* Shared button styles */
+
 .btn {
   flex: 1;
   padding: 0.6rem 1rem;
@@ -93,7 +92,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Mark as Completed */
+
 .btn.success {
   background: linear-gradient(to right, #22c55e, #16a34a);
   color: #fff;
@@ -104,7 +103,7 @@
   transform: scale(1.05);
 }
 
-/* Mark as Failed */
+
 .btn.failed {
   background: linear-gradient(to right, #ef4444, #b91c1c);
   color: #fff;

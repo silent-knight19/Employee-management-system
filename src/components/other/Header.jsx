@@ -11,7 +11,7 @@ const Header = (props) => {
     <header className="header-container">
       <div className="header-greeting">
         <p className="greeting-text">Welcome back,</p>
-        <h1 className="header-username">{props.data.firstName} 👋</h1>
+        <h1 className="header-username">{props.data?.firstName || "User"} 👋</h1>
       </div>
       <button onClick={logOutUser} className="logout-button">
         Log Out

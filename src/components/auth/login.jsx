@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './login.css'; // Assuming the path is correct
 
 const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState('');
@@ -13,31 +13,41 @@ const Login = ({ handleLogin }) => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2 className="login-title">Login to Your Account</h2>
-        <form onSubmit={submitHandler} className="login-form">
+    <div className="page-container">
+      <form onSubmit={submitHandler} className="login-form-container">
+        <h2 className="login-heading">Welcome Back</h2>
+        <p className="login-subheading">Login to access your account</p>
+
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
           <input
+            id="email"
             type="email"
             required
-            placeholder="Enter your email"
-            className="login-input email-input"
+            placeholder="you@example.com"
+            className="login-input"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             type="password"
             required
-            placeholder="Enter password"
+            placeholder="Enter your password"
             className="login-input"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="login-button">
-            Log in
-          </button>
-        </form>
-      </div>
+        </div>
+
+        <button type="submit" className="login-button">
+          Log In
+        </button>
+      </form>
     </div>
   );
 };

@@ -9,8 +9,8 @@
   
   .task-count-card {
     flex: 1 1 200px;
-    min-height: 180px; /* 🔼 Increased height */
-    padding: 2rem 2.25rem; /* 🔼 Increased vertical padding */
+    min-height: 180px;
+    padding: 2rem 2.25rem;
     border-radius: 0.75rem;
     color: #fff;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
@@ -35,7 +35,7 @@
   
   .card-accepted-task {
     background-color: #facc15;
-    color: #000; /* Fallback if text class is missed */
+    color: #000;
   }
   
   .card-failed-task {

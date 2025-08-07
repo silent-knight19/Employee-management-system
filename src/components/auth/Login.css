@@ -1,137 +1,127 @@
-/*
-  Modern Login Stylesheet (Dark & Green Theme)
-  ---------------------------------------------
-  This file provides a modern, dark-theme look for the login component,
-  using a green accent color for a tech-forward feel.
-*/
+/* It's good practice to import the font you are using. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Import a clean, modern font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+:root {
+  --primary-color: #10b981;
+  --background-color: #121212;
+  --container-bg: #1e1e1e;
+  --input-bg: #2c2c2c;
+  --input-border: #3c3c3c;
+  --text-color: #e5e7eb;
+  --placeholder-color: #9ca3af;
+  --button-hover: #059669;
+  --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.6);
+  --shadow-focus: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
 
-/* GLOBAL RESET & BODY STYLES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* A subtle fade-in animation for the form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    /* A deep, dark gradient for the background */
-    background: linear-gradient(135deg, #0f172a 0%, #132a13 100%);
-    color: #e2e8f0;
-    height: 100vh;
-    overflow: hidden;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-/* MAIN LOGIN CONTAINER */
-.login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 1rem;
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* LOGIN CARD STYLING */
-.login-card {
-    /* Semi-transparent background with a frosted glass effect */
-    background-color: rgba(20, 39, 20, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    animation: fadeIn 0.5s ease-in-out;
+.login-form-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background-color: var(--container-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Modern way to space elements */
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* Fade-in animation keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.login-heading {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  color: var(--text-color);
 }
 
-/* TITLE STYLING */
-.login-title {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #f8fafc;
-    /* A subtle green glow for the title */
-    text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+.login-subheading {
+  text-align: center;
+  margin: -10px 0 0; /* Pulls it closer to the heading */
+  font-size: 16px;
+  color: var(--placeholder-color);
 }
 
-/* FORM LAYOUT */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between label and input */
 }
 
-/* INPUT FIELD STYLING */
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
 .login-input {
-    background-color: #1e293b; /* A dark slate for input fields */
-    border: 1px solid #4d7c5b;
-    border-radius: 0.5rem;
-    padding: 0.875rem 1rem;
-    font-size: 1rem;
-    color: #f8fafc;
-    transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  padding: 12px 16px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 16px;
+  color: var(--text-color);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .login-input::placeholder {
-    color: #94a3b8;
+  color: var(--placeholder-color);
 }
 
 .login-input:focus {
-    outline: none;
-    border-color: #22c55e; /* A bright green focus color */
-    /* A green glow effect on focus */
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-focus);
 }
 
-/* BUTTON STYLING */
 .login-button {
-    /* A vibrant green gradient for the primary action */
-    background: linear-gradient(90deg, #22c55e 0%, #10b981 100%);
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.875rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  /* More detailed transition for smoother interactions */
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .login-button:hover {
-    /* The button lifts and the shadow becomes more prominent */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  background-color: var(--button-hover);
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
 .login-button:active {
-    /* Provides tactile feedback on click */
-    transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-}
-
-/* BROWSER AUTOFILL STYLES */
-.login-input:-webkit-autofill,
-.login-input:-webkit-autofill:hover,
-.login-input:-webkit-autofill:focus,
-.login-input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
-    -webkit-text-fill-color: #f8fafc !important;
-    transition: background-color 5000s ease-in-out 0s;
+  transform: translateY(0); /* Button returns to position on click */
 }
