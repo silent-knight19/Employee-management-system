@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './Global.css';
-import Login from './components/Auth/Login'
+import Login from './components/auth/login'
 import EmployeeDashboard from './components/Dashboard/EmployeeDashboard'
 import AdminDashboard from './components/Dashboard/AdminDashboard'
 import { AuthContext } from './context/AuthProvider'
@@ -24,20 +24,37 @@ const App = () => {
 
 
   const handleLogin = (email, password) => {
-    if (email == 'admin@me.com' && password == '123') {
-      setUser('admin')
-      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }))
-    } else if (userData) {
-      const employee = userData.find((e) => email == e.email && e.password == password)
+    console.log('Login attempt with:', { email, password });
+    console.log('userData:', userData);
+    
+    // Check for admin login first
+    if (email.trim() === 'admin@me.com' && password === '123') {
+      console.log('Admin login successful');
+      setUser('admin');
+      localStorage.setItem('loggedInUser', JSON.stringify({ role: 'admin' }));
+      return; // Exit after successful admin login
+    }
+    
+    // Check for employee login if not admin
+    if (userData && Array.isArray(userData)) {
+      console.log('Checking employee login...');
+      const employee = userData.find(e => {
+        console.log('Checking employee:', e.email, 'with entered:', email);
+        return e.email === email && e.password === password;
+      });
+      
       if (employee) {
-        setUser('employee')
-        setLoggedInUserData(employee)
-        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee',data:employee }))
+        console.log('Employee login successful:', employee);
+        setUser('employee');
+        setLoggedInUserData(employee);
+        localStorage.setItem('loggedInUser', JSON.stringify({ role: 'employee', data: employee }));
+        return; // Exit after successful employee login
       }
     }
-    else {
-      alert("Invalid Credentials")
-    }
+    
+    // If we get here, login failed
+    console.log('Login failed - invalid credentials');
+    alert("Invalid Credentials");
   }
 
 

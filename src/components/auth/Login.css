@@ -1,95 +1,137 @@
-/* GLOBAL RESET */
+/*
+  Modern Login Stylesheet (Dark & Green Theme)
+  ---------------------------------------------
+  This file provides a modern, dark-theme look for the login component,
+  using a green accent color for a tech-forward feel.
+*/
+
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* GLOBAL RESET & BODY STYLES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f172a;
-    color: #f1f5f9;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* A deep, dark gradient for the background */
+    background: linear-gradient(135deg, #0f172a 0%, #132a13 100%);
+    color: #e2e8f0;
     height: 100vh;
-  }
-  
-  /* CONTAINER */
-  .login-container {
+    overflow: hidden;
+}
+
+/* MAIN LOGIN CONTAINER */
+.login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     padding: 1rem;
-  }
-  
-  /* CARD */
-  .login-card {
-    background-color: #1e293b;
-    border: 1.5px solid #10b981;
-    border-radius: 0.75rem;
-    padding: 2rem;
+}
+
+/* LOGIN CARD STYLING */
+.login-card {
+    /* Semi-transparent background with a frosted glass effect */
+    background-color: rgba(20, 39, 20, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 1rem;
+    padding: 2.5rem;
     width: 100%;
-    max-width: 400px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-  }
-  
-  /* TITLE */
-  .login-title {
-    font-size: 1.5rem;
+    max-width: 420px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TITLE STYLING */
+.login-title {
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 1.75rem;
-    color: #ffffff;
-  }
-  
-  /* FORM */
-  .login-form {
+    margin-bottom: 2rem;
+    color: #f8fafc;
+    /* A subtle green glow for the title */
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+}
+
+/* FORM LAYOUT */
+.login-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-  }
-  
-  /* INPUT FIELDS */
-  .login-input {
-    background-color: #334155;
-    border: 2px solid #10b981;
+    gap: 1.5rem;
+}
+
+/* INPUT FIELD STYLING */
+.login-input {
+    background-color: #1e293b; /* A dark slate for input fields */
+    border: 1px solid #4d7c5b;
     border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1rem;
     font-size: 1rem;
     color: #f8fafc;
-    transition: border-color 0.2s ease-in-out, background-color 0.2s;
-  }
-  
-  .login-input::placeholder {
+    transition: all 0.3s ease;
+}
+
+.login-input::placeholder {
     color: #94a3b8;
-  }
-  
-  .login-input:focus {
-    border-color: #22c55e;
-    background-color: #1e293b;
+}
+
+.login-input:focus {
     outline: none;
-  }
-  
-  /* BUTTON */
-  .login-button {
-    background-color: #10b981;
+    border-color: #22c55e; /* A bright green focus color */
+    /* A green glow effect on focus */
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+}
+
+/* BUTTON STYLING */
+.login-button {
+    /* A vibrant green gradient for the primary action */
+    background: linear-gradient(90deg, #22c55e 0%, #10b981 100%);
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1rem;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .login-button:hover {
-    background-color: #059669;
-  }
-  
-  /* AUTOFILL FIX */
-  .login-input:-webkit-autofill {
-    box-shadow: 0 0 0 1000px #334155 inset !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+.login-button:hover {
+    /* The button lifts and the shadow becomes more prominent */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+.login-button:active {
+    /* Provides tactile feedback on click */
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+/* BROWSER AUTOFILL STYLES */
+.login-input:-webkit-autofill,
+.login-input:-webkit-autofill:hover,
+.login-input:-webkit-autofill:focus,
+.login-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1e293b inset !important;
     -webkit-text-fill-color: #f8fafc !important;
     transition: background-color 5000s ease-in-out 0s;
-  }
-  
+}
