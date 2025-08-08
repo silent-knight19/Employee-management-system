@@ -51,7 +51,7 @@ A modern, responsive web application for managing employees, tasks, and organiza
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/silent-knight19/Employee-management-system>
    cd ems
    ```
 
