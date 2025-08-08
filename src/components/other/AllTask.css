@@ -1,95 +1,165 @@
+/* 
+ * CSS Variables (Custom Properties)
+ * These variables define the color scheme and common values used throughout the component
+ * Using CSS variables makes it easy to maintain consistent theming
+ */
 :root {
-    --background-primary: #1e1e24;
-    --background-secondary: #2c2c34;
-    --border-color: #3b3b45;
-    --header-bg: #32323c;
-    --text-primary: #e6e6f0;
-    --text-secondary: #a0a0b3;
-    --accent-blue: #60a5fa;
-    --accent-yellow: #facc15;
-    --accent-green: #4ade80;
-    --accent-red: #f87171;
-    --hover-bg: #2a2a33;
-    --box-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --transition-fast: 0.2s ease-in-out;
+    /* Background Colors */
+    --background-primary: #1e1e24;    /* Main background color */
+    --background-secondary: #2c2c34;  /* Secondary background for cards/containers */
+    --header-bg: #32323c;            /* Background for header elements */
+    --hover-bg: #2a2a33;             /* Background color on hover states */
+    
+    /* Border Colors */
+    --border-color: #3b3b45;         /* Default border color */
+    
+    /* Text Colors */
+    --text-primary: #e6e6f0;         /* Primary text color for content */
+    --text-secondary: #a0a0b3;       /* Secondary text for less important info */
+    
+    /* Accent Colors */
+    --accent-blue: #60a5fa;          /* Primary action/button color */
+    --accent-yellow: #facc15;        /* Warning/attention color */
+    --accent-green: #4ade80;         /* Success/confirmation color */
+    --accent-red: #f87171;           /* Error/danger color */
+    
+    /* Effects */
+    --box-shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.3);  /* Shadow for depth */
+    --transition-fast: 0.2s ease-in-out;               /* Standard transition */
 }
 
 
+/* 
+ * Main Container Styles
+ * Wrapper that contains the entire task list component
+ */
 .all-task-wrapper {
-    background-color: var(--background-primary);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-top: 1.5rem;
-    box-shadow: var(--box-shadow-dark);
+    background-color: var(--background-primary);  /* Dark background for the container */
+    padding: 2rem;                               /* Spacing inside the container */
+    border-radius: 12px;                         /* Rounded corners */
+    margin-top: 1.5rem;                          /* Space above the container */
+    box-shadow: var(--box-shadow-dark);          /* Subtle shadow for depth */
 }
 
-
+/* 
+ * Task Table Base Styles
+ * Main table that displays the list of tasks
+ */
 .task-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: var(--text-primary);
-    table-layout: auto;
+    width: 100%;                    /* Full width of container */
+    border-collapse: collapse;      /* Remove default table spacing */
+    color: var(--text-primary);     /* Text color */
+    table-layout: auto;             /* Auto-adjust column widths based on content */
 }
 
 
+/* 
+ * Table Header Styles
+ * Styles for the table header row and cells
+ */
 .task-table-header {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    background-color: var(--header-bg);
+    font-size: 0.9rem;              /* Slightly smaller text for headers */
+    text-transform: uppercase;       /* Uppercase text for header cells */
+    letter-spacing: 0.05em;          /* Increased letter spacing for better readability */
+    background-color: var(--header-bg);  /* Darker background for header */
 }
 
+/* 
+ * Header Cell Styles
+ * Individual cells within the table header
+ */
 .header-cell {
-    padding: 1.1rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-align: center;
+    padding: 1.1rem;                /* Consistent padding */
+    font-weight: 600;               /* Bold text for headers */
+    color: var(--text-secondary);   /* Secondary text color */
+    text-align: center;             /* Center align header text by default */
 }
 
+/* 
+ * First Header Cell Alignment
+ * Left-aligns the first header cell (typically for task names)
+ */
 .header-cell:first-child {
     text-align: left;
 }
 
 
+/* 
+ * Task Data Row Styles
+ * Styles for each row of task data in the table
+ */
 .task-data-row {
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--background-secondary);
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    border-bottom: 1px solid var(--border-color);  /* Subtle border between rows */
+    background-color: var(--background-secondary);  /* Background color for rows */
+    transition: background-color var(--transition-fast), 
+                transform var(--transition-fast);   /* Smooth transitions for hover effects */
 }
 
+/* 
+ * Hover State for Task Rows
+ * Visual feedback when hovering over task rows
+ */
 .task-data-row:hover {
-    background-color: var(--hover-bg);
-    transform: scale(1.002);
+    background-color: var(--hover-bg);  /* Slightly lighter background on hover */
+    transform: scale(1.002);            /* Subtle scale effect for depth */
 }
 
-
+/* 
+ * Base Data Cell Styles
+ * Default styles for all table data cells
+ */
 .data-cell {
-    padding: 1.1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
-    vertical-align: middle;
+    padding: 1.1rem;        /* Consistent padding with header cells */
+    font-size: 1rem;        /* Base font size for content */
+    font-weight: 500;       /* Medium font weight for readability */
+    text-align: center;     /* Center align content by default */
+    vertical-align: middle; /* Vertically center content */
 }
 
+/* 
+ * Task Name Cell Styles
+ * Special styling for the task name column
+ */
 .data-cell-name {
-    text-align: left;
-    font-weight: 600;
-    padding-left: 1.25rem;
+    text-align: left;       /* Left-align task names for better readability */
+    font-weight: 600;       /* Slightly bolder for emphasis */
+    padding-left: 1.25rem;  /* Extra left padding for visual hierarchy */
 }
 
 
+/* 
+ * Status Indicator Styles
+ * These classes apply color coding to indicate task status
+ */
+
+/* 
+ * New Task Status
+ * Indicates a newly created task that hasn't been started
+ */
 .data-cell-new {
-    color: var(--accent-blue);
+    color: var(--accent-blue);  /* Blue color for new tasks */
 }
 
+/* 
+ * Active Task Status
+ * Indicates a task that is currently in progress
+ */
 .data-cell-active {
-    color: var(--accent-yellow);
+    color: var(--accent-yellow);  /* Yellow color for active tasks */
 }
 
+/* 
+ * Completed Task Status
+ * Indicates a successfully completed task
+ */
 .data-cell-completed {
-    color: var(--accent-green);
+    color: var(--accent-green);  /* Green color for completed tasks */
 }
 
+/* 
+ * Failed Task Status
+ * Indicates a task that couldn't be completed
+ */
 .data-cell-failed {
-    color: var(--accent-red);
+    color: var(--accent-red);  /* Red color for failed tasks */
 }

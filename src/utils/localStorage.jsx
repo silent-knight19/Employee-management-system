@@ -1,4 +1,11 @@
 
+/**
+ * Default employee data structure with sample data
+ * Each employee has:
+ * - Basic info (id, firstName, email, password)
+ * - Task counts for different statuses
+ * - Array of tasks with details
+ */
 const employees = [
     {
         "id": 1,
@@ -12,6 +19,15 @@ const employees = [
             "failed": 0
         },
         "tasks": [
+            // Task structure:
+            // - active: Task is currently in progress
+            // - newTask: Newly assigned task that needs attention
+            // - completed: Task has been completed
+            // - failed: Task failed to complete
+            // - taskTitle: Short description of the task
+            // - taskDescription: Detailed description
+            // - taskDate: Due date in YYYY-MM-DD format
+            // - category: Task category (e.g., Design, Development, etc.)
             {
                 "active": true,
                 "newTask": true,
@@ -44,6 +60,7 @@ const employees = [
             }
         ]
     },
+    // Additional employee records follow the same structure...
     {
         "id": 2,
         "firstName": "Sneha",
@@ -202,7 +219,10 @@ const employees = [
     }
 ];
 
-
+/**
+ * Default admin user data
+ * Contains basic admin credentials for system access
+ */
 const admin = [{
     "id": 1,
     "firstName": "Sachin",
@@ -210,13 +230,27 @@ const admin = [{
     "password": "123"
 }];
 
-export const setLocalStorage = ()=>{
-    localStorage.setItem('employees',JSON.stringify(employees))
-    localStorage.setItem('admin',JSON.stringify(admin))
-}
-export const getLocalStorage = ()=>{
-    const employees = JSON.parse(localStorage.getItem('employees'))
-    const admin = JSON.parse(localStorage.getItem('admin'))
+/**
+ * Initializes or resets the local storage with default data
+ * This function is typically called when the application starts
+ * to ensure default data is available
+ */
+export const setLocalStorage = () => {
+    // Store employees and admin data in localStorage
+    localStorage.setItem('employees', JSON.stringify(employees));
+    localStorage.setItem('admin', JSON.stringify(admin));
+};
 
-    return {employees,admin}
-}
+/**
+ * Retrieves data from localStorage
+ * @returns {Object} An object containing employees and admin data
+ * @property {Array} employees - List of employee records
+ * @property {Array} admin - List of admin users
+ */
+export const getLocalStorage = () => {
+    // Retrieve and parse data from localStorage
+    const employees = JSON.parse(localStorage.getItem('employees')) || [];
+    const admin = JSON.parse(localStorage.getItem('admin')) || [];
+
+    return { employees, admin };
+};

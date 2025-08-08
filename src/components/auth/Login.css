@@ -1,127 +1,197 @@
-/* It's good practice to import the font you are using. */
+/* 
+ * Google Fonts Import
+ * Using Inter font family with various weights for typography consistency
+ * This font provides excellent readability and modern aesthetics
+ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* 
+ * CSS Custom Properties (Variables)
+ * Global theme variables for consistent theming across the login page
+ */
 :root {
-  --primary-color: #10b981;
-  --background-color: #121212;
-  --container-bg: #1e1e1e;
-  --input-bg: #2c2c2c;
-  --input-border: #3c3c3c;
-  --text-color: #e5e7eb;
-  --placeholder-color: #9ca3af;
-  --button-hover: #059669;
-  --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.6);
-  --shadow-focus: 0 0 0 3px rgba(16, 185, 129, 0.3);
+  /* Color Palette */
+  --primary-color: #10b981;          /* Primary brand color (emerald) */
+  --background-color: #121212;       /* Main background color (dark) */
+  --container-bg: #1e1e1e;           /* Container background color */
+  --input-bg: #2c2c2c;              /* Input field background */
+  --input-border: #3c3c3c;          /* Input border color */
+  --text-color: #e5e7eb;            /* Primary text color */
+  --placeholder-color: #9ca3af;     /* Placeholder text color */
+  --button-hover: #059669;          /* Button hover state color */
+  
+  /* Effects */
+  --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.6);        /* Standard shadow */
+  --shadow-focus: 0 0 0 3px rgba(16, 185, 129, 0.3);   /* Focus ring for accessibility */
 }
 
-/* A subtle fade-in animation for the form */
+/* 
+ * Fade-in Animation
+ * Creates a subtle entrance animation for the login form
+ * Used to enhance the user experience during page load
+ */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(-10px);
+    opacity: 0;                     /* Start fully transparent */
+    transform: translateY(-10px);   /* Start 10px above final position */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1;                     /* Fade to fully opaque */
+    transform: translateY(0);       /* Move to final position */
   }
 }
 
+/* 
+ * Base Body Styles
+ * Sets up the default styling for the entire page
+ */
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  margin: 0;                                      /* Remove default margin */
+  font-family: 'Inter', sans-serif;               /* Set default font */
+  background-color: var(--background-color);      /* Dark background */
+  color: var(--text-color);                       /* Light text for contrast */
 }
 
+/* 
+ * Page Container
+ * Wrapper that takes up the full viewport height and width
+ * Used as the main container for the login page
+ */
 .page-container {
-  height: 100vh;
-  width: 100vw;
+  height: 100vh;     /* Full viewport height */
+  width: 100vw;      /* Full viewport width */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/*
+ * Login Form Container
+ * Styling for the main form container that holds all form elements
+ * Uses a card-like design with shadow and rounded corners
+ */
 .login-form-container {
-  width: 100%;
-  max-width: 400px;
-  padding: 40px;
-  background-color: var(--container-bg);
-  border-radius: 16px;
-  box-shadow: var(--shadow-dark);
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Modern way to space elements */
-  animation: fadeIn 0.5s ease-out forwards;
+  width: 100%;                    /* Full width of parent */
+  max-width: 400px;              /* Maximum width to maintain readability */
+  padding: 40px;                 /* Generous padding around form content */
+  background-color: var(--container-bg);  /* Dark container background */
+  border-radius: 16px;           /* Rounded corners for modern look */
+  box-shadow: var(--shadow-dark); /* Subtle shadow for depth */
+  display: flex;                 /* Flex layout for vertical stacking */
+  flex-direction: column;        /* Stack children vertically */
+  gap: 20px;                     /* Consistent spacing between form elements */
+  animation: fadeIn 0.5s ease-out forwards;  /* Apply fade-in animation */
 }
 
+/*
+ * Login Heading
+ * Main title of the login form
+ */
 .login-heading {
-  font-size: 28px;
-  font-weight: 600;
-  text-align: center;
-  margin: 0;
-  color: var(--text-color);
+  font-size: 28px;               /* Large, readable text */
+  font-weight: 600;              /* Semi-bold for emphasis */
+  text-align: center;            /* Center align the heading */
+  margin: 0;                     /* Remove default margins */
+  color: var(--text-color);      /* Use theme text color */
 }
 
+/*
+ * Login Subheading
+ * Secondary text below the main heading
+ */
 .login-subheading {
-  text-align: center;
-  margin: -10px 0 0; /* Pulls it closer to the heading */
-  font-size: 16px;
-  color: var(--placeholder-color);
+  text-align: center;            /* Center align the subheading */
+  margin: -10px 0 0;             /* Negative top margin to pull closer to heading */
+  font-size: 16px;               /* Slightly smaller than body text */
+  color: var(--placeholder-color);  /* Muted color for secondary text */
 }
 
+/*
+ * Form Group
+ * Wrapper for label + input pairs
+ * Uses flexbox for consistent vertical spacing
+ */
 .form-group {
   display: flex;
-  flex-direction: column;
-  gap: 8px; /* Space between label and input */
+  flex-direction: column;        /* Stack label above input */
+  gap: 8px;                      /* Space between label and input */
 }
 
+/*
+ * Form Labels
+ * Styling for input field labels
+ */
 label {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-color);
+  font-size: 14px;               /* Slightly smaller than input text */
+  font-weight: 500;              /* Medium weight for better readability */
+  color: var(--text-color);      /* Use theme text color */
 }
 
+/*
+ * Login Input Fields
+ * Styling for text input fields
+ */
 .login-input {
-  width: 100%;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
-  padding: 12px 16px;
-  background-color: var(--input-bg);
-  border: 1px solid var(--input-border);
-  border-radius: 8px;
-  font-size: 16px;
-  color: var(--text-color);
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;                   /* Full width of parent */
+  box-sizing: border-box;        /* Include padding in width calculation */
+  padding: 12px 16px;            /* Comfortable padding inside input */
+  background-color: var(--input-bg);     /* Dark background for inputs */
+  border: 1px solid var(--input-border); /* Subtle border */
+  border-radius: 8px;            /* Rounded corners */
+  font-size: 16px;               /* Standard readable size */
+  color: var(--text-color);      /* Light text color for contrast */
+  outline: none;                 /* Remove default focus outline (replaced with custom) */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;  /* Smooth transitions */
 }
 
+/*
+ * Input Placeholder Text
+ * Styling for the placeholder text in input fields
+ */
 .login-input::placeholder {
-  color: var(--placeholder-color);
+  color: var(--placeholder-color);  /* Muted color for placeholder text */
+  opacity: 1;                       /* Ensure consistent opacity across browsers */
 }
 
+/*
+ * Input Focus State
+ * Enhanced focus state for better accessibility and visual feedback
+ */
 .login-input:focus {
-  border-color: var(--primary-color);
-  box-shadow: var(--shadow-focus);
+  border-color: var(--primary-color);  /* Highlight border on focus */
+  box-shadow: var(--shadow-focus);     /* Add focus ring for better visibility */
 }
 
+/*
+ * Login Button
+ * Primary call-to-action button for form submission
+ */
 .login-button {
-  width: 100%;
-  padding: 12px 16px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  /* More detailed transition for smoother interactions */
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;                        /* Full width of container */
+  padding: 12px 16px;                 /* Comfortable padding */
+  background-color: var(--primary-color);  /* Brand primary color */
+  color: white;                       /* White text for contrast */
+  border: none;                       /* Remove default border */
+  border-radius: 8px;                 /* Rounded corners to match inputs */
+  cursor: pointer;                    /* Indicate clickable element */
+  font-weight: 600;                   /* Bold text */
+  font-size: 16px;                    /* Match input text size */
+  transition: background-color 0.2s ease, transform 0.1s ease;  /* Smooth transitions */
 }
 
+/*
+ * Login Button Hover State
+ * Visual feedback when hovering over the button
+ */
 .login-button:hover {
-  background-color: var(--button-hover);
-  transform: translateY(-2px); /* Slight lift effect */
+  background-color: var(--button-hover);  /* Slightly darker shade */
+  transform: translateY(-2px);            /* Subtle lift effect */
 }
 
+/*
+ * Login Button Active State
+ * Feedback when the button is being clicked
+ */
 .login-button:active {
-  transform: translateY(0); /* Button returns to position on click */
+  transform: translateY(0);  /* Return to original position */
 }

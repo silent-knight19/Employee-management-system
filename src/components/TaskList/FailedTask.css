@@ -1,49 +1,100 @@
+/*
+ * Failed Task Container
+ * Styling for the failed task card component
+ * Uses a yellow background to indicate failed/attention-required tasks
+ */
 .failed-task-container {
-    flex-shrink: 0;
-    height: 100%;
-    width: 300px;
-    padding: 1.25rem;
-    background-color: #facc15;
-    border-radius: 0.75rem;
+    flex-shrink: 0;            /* Prevent container from shrinking */
+    height: 100%;              /* Take full height of parent */
+    width: 300px;              /* Fixed width for consistency */
+    padding: 1.25rem;          /* Inner spacing */
+    background-color: #facc15;  /* Yellow background for failed tasks */
+    border-radius: 0.75rem;    /* Rounded corners */
+    color: #1f2937;            /* Dark text for contrast */
 }
 
+/*
+ * Task Header
+ * Container for task category and date
+ * Uses flexbox for horizontal alignment
+ */
 .task-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between;  /* Space items at opposite ends */
+    align-items: center;             /* Vertically center items */
 }
 
+/*
+ * Task Category Badge
+ * Visual indicator for task type/status
+ */
 .task-category {
-    background-color: #dc2626;
-    font-size: 0.875rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0.25rem;
+    background-color: #dc2626;  /* Red background for visibility */
+    color: white;              /* White text for contrast */
+    font-size: 0.875rem;       /* Smaller text */
+    padding: 0.25rem 0.75rem;  /* Comfortable padding */
+    border-radius: 0.25rem;    /* Slightly rounded corners */
 }
 
+/*
+ * Task Date
+ * Styling for the task's date information
+ */
 .task-date {
-    font-size: 0.875rem;
+    font-size: 0.875rem;       /* Match category text size */
+    color: #1f2937;            /* Dark gray for readability */
 }
 
+/*
+ * Task Title
+ * Main heading for the task
+ */
 .task-title {
-    margin-top: 1.25rem;
-    font-size: 1.5rem;
-    font-weight: 600;
+    margin-top: 1.25rem;       /* Space below header */
+    font-size: 1.5rem;         /* Large, prominent text */
+    font-weight: 600;          /* Semi-bold for emphasis */
+    color: #1f2937;            /* Dark text for contrast */
 }
 
+/*
+ * Task Description
+ * Secondary text with task details
+ */
 .task-description {
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
+    font-size: 0.875rem;       /* Standard body text size */
+    margin-top: 0.5rem;        /* Space below title */
+    color: #374151;            /* Slightly lighter than title */
+    line-height: 1.5;          /* Improved readability */
 }
 
+/*
+ * Task Actions
+ * Container for action buttons
+ */
 .task-actions {
-    margin-top: 1.5rem;
+    margin-top: 1.5rem;        /* Space above action buttons */
+    display: flex;
+    gap: 0.75rem;              /* Space between buttons */
 }
 
+/*
+ * Failed Button
+ * Action button for failed tasks
+ */
 .task-button-failed {
-    width: 100%;
-    background-color: #ef4444;
-    border-radius: 0.25rem;
-    font-weight: 500;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    width: 100%;               /* Full width of container */
+    background-color: #ef4444;  /* Red background for attention */
+    color: white;              /* White text */
+    border: none;              /* Remove default border */
+    border-radius: 0.25rem;    /* Slightly rounded corners */
+    font-weight: 500;          /* Medium font weight */
+    padding: 0.5rem 1rem;      /* Comfortable click area */
+    font-size: 0.875rem;       /* Readable text size */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.2s ease;  /* Smooth hover effect */
+}
+
+/* Hover state for better interactivity */
+.task-button-failed:hover {
+    background-color: #dc2626;  /* Slightly darker red */
 }

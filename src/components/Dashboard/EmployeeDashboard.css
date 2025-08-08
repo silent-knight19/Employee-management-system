@@ -1,5 +1,10 @@
+/*
+ * Employee Dashboard Container
+ * Main container for the employee dashboard layout
+ * Provides a dark-themed, full-viewport interface with consistent spacing
+ */
 .employee-dashboard-container {
-    padding: 2.5rem;
-    background-color: #1C1C1C;
-    height: 100vh;
+    padding: 2.5rem;            /* Generous padding around content */
+    background-color: #1C1C1C;  /* Dark background for the dashboard */
+    height: 100vh;             /* Full viewport height */
 }

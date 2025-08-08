@@ -1,63 +1,83 @@
 
+/*
+ * Task List Container
+ * Main container for the task list with custom scrollbar styling
+ */
 #tasklist {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none;      /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none;   /* Hide scrollbar in IE/Edge */
   background-color: transparent;
-  margin-top: 2rem;
-
+  margin-top: 2rem;          /* Space above the task list */
 }
 
+/* Hide scrollbar in WebKit browsers (Chrome, Safari) */
 #tasklist::-webkit-scrollbar {
   display: none;
 }
 
-
+/*
+ * Task List Wrapper
+ * Horizontal scrolling container for task cards with glassmorphism effect
+ */
 .tasklist-wrapper {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 1.5rem;
-  padding: 2rem 1rem;
-  overflow-x: auto;
-  overflow-y: hidden;
+  flex-direction: row;        /* Horizontal layout */
+  align-items: stretch;       /* Stretch cards to equal height */
+  gap: 1.5rem;                /* Space between cards */
+  padding: 2rem 1rem;         /* Padding around the container */
+  overflow-x: auto;           /* Enable horizontal scrolling */
+  overflow-y: hidden;         /* Disable vertical scrolling */
   width: 100%;
   height: auto;
 
+  /* Smooth scrolling behavior */
   scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;  /* Snap cards into place when scrolling */
+  -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
 
+  /* Glassmorphism effect */
   background: rgba(30, 30, 30, 0.5);
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(14px);  /* Safari support */
+  border-radius: 20px;                  /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.08);  /* Subtle border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);   /* Depth effect */
 }
 
 
+/*
+ * Task Card
+ * Individual task card with subtle animations and hover effects
+ */
 .task-card {
-  scroll-snap-align: start;
-  flex: 0 0 auto;
-  min-width: 280px;
-  min-height: 220px;
-  padding: 1.5rem;
-  border-radius: 16px;
+  scroll-snap-align: start;    /* Snap to start of container */
+  flex: 0 0 auto;              /* Prevent cards from growing/shrinking */
+  min-width: 280px;            /* Minimum width for each card */
+  min-height: 220px;           /* Minimum height for each card */
+  padding: 1.5rem;             /* Inner spacing */
+  border-radius: 16px;         /* Rounded corners */
 
-  background: rgba(60, 60, 60, 0.6);
-  color: #f3f4f6;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Card styling */
+  background: rgba(60, 60, 60, 0.6);  /* Semi-transparent dark background */
+  color: #f3f4f6;                     /* Light text color */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);  /* Subtle shadow */
+  border: 1px solid rgba(255, 255, 255, 0.08);  /* Subtle border */
   position: relative;
   overflow: hidden;
+  
+  /* Smooth transitions for interactive states */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+  /* Entrance animation */
   animation: fadeInRight 0.6s ease-out forwards;
   opacity: 0;
   transform: translateX(-20px);
 }
 
-
+/*
+ * Fade In Right Animation
+ * Slide and fade in effect for task cards
+ */
 @keyframes fadeInRight {
   to {
       opacity: 1;
@@ -65,51 +85,68 @@
   }
 }
 
-
+/*
+ * Task Card Hover State
+ * Elevation and scale effect on hover for better interactivity
+ */
 .task-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.1);
+  transform: translateY(-6px) scale(1.03);  /* Lift and slightly scale up */
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.1);  /* Enhanced shadow */
 }
 
-
+/*
+ * Button Group
+ * Container for action buttons at the bottom of each task card
+ */
 .button-group {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  justify-content: space-between;  /* Space buttons evenly */
+  gap: 1rem;                       /* Space between buttons */
+  margin-top: 1.5rem;              /* Space above button group */
 }
 
-
+/*
+ * Base Button Styles
+ * Common styles for all buttons
+ */
 .btn {
-  flex: 1;
-  padding: 0.6rem 1rem;
-  font-size: 0.95rem;
-  border-radius: 10px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex: 1;                          /* Distribute space evenly */
+  padding: 0.6rem 1rem;             /* Comfortable click area */
+  font-size: 0.95rem;               /* Readable text size */
+  border-radius: 10px;              /* Rounded corners */
+  font-weight: 600;                 /* Bold text */
+  border: none;                     /* Remove default border */
+  cursor: pointer;                  /* Pointer cursor on hover */
+  transition: all 0.3s ease;        /* Smooth transitions */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Subtle depth */
 }
 
-
+/*
+ * Success Button
+ * Used for positive actions like completing a task
+ */
 .btn.success {
-  background: linear-gradient(to right, #22c55e, #16a34a);
-  color: #fff;
+  background: linear-gradient(to right, #22c55e, #16a34a);  /* Green gradient */
+  color: #fff;  /* White text */
 }
 
+/* Hover state for success button */
 .btn.success:hover {
-  background: linear-gradient(to right, #4ade80, #22c55e);
-  transform: scale(1.05);
+  background: linear-gradient(to right, #4ade80, #22c55e);  /* Lighter green */
+  transform: scale(1.05);  /* Slight scale up */
 }
 
-
+/*
+ * Failed Button
+ * Used for negative actions like marking a task as failed
+ */
 .btn.failed {
-  background: linear-gradient(to right, #ef4444, #b91c1c);
-  color: #fff;
+  background: linear-gradient(to right, #ef4444, #b91c1c);  /* Red gradient */
+  color: #fff;  /* White text */
 }
 
+/* Hover state for failed button */
 .btn.failed:hover {
-  background: linear-gradient(to right, #f87171, #ef4444);
-  transform: scale(1.05);
+  background: linear-gradient(to right, #f87171, #ef4444);  /* Lighter red */
+  transform: scale(1.05);  /* Slight scale up */
 }
